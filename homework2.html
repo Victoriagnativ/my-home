@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div id="one">one</div>
+
+    <script>
+    
+    var one =document.getElementById('one');
+    var div = document.createElement('div');
+    div.id = "two";
+    div.innerHTML = "two";
+    document.body.appendChild(div);
+    console.log(document.body)
+    var button = document.getElementById('two');
+    button.onclick = function () {
+    var div1 = document.createElement('div');
+    div1.id = "two_first";
+    div1.innerHTML = "two_first"; 
+    document.body.insertBefore(div1,div); 
+    var lastElement = document.getElementById('two');
+    var newItem = document.createElement('div');
+     newItem.id ='two_second';
+     newItem.innerHTML = "two_second"; 
+    document.body.replaceChild(newItem, lastElement);
+
+    }
+        
+    </script>
+</body>
+</html>
