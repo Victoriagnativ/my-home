@@ -1,0 +1,60 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <meta name="viewport" content="width=device-width,user-scalable=no">
+     </head>
+     <style>
+         a{
+             display: block;
+         }
+         .hidden {
+     display:none;
+  }
+ 
+     </style>
+     <body>
+ 
+         <script>
+             window.onload = function (){
+             
+             var a = document.createElement('a');
+             a.innerHTML="my title text"
+             a.href = "http://example.com";
+             document.body.appendChild(a);
+             var divItem = document.createElement('div');
+             divItem.classList.add('hidden');
+             divItem.innerHTML='Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
+             
+             document.body.appendChild(divItem);
+             console.log(document.body)
+ 
+             var myBtn = document.getElementById("mybutton");
+             a.addEventListener("click",
+                 function (e) {
+                     var href = this.getAttribute('href');
+                     e.preventDefault();
+                     return false 
+                 }
+             );
+             
+             a.addEventListener("click",clickHandler)
+                 function clickHandler(e) {
+                     divItem.classList.toggle('hidden');
+                 };
+             
+             myBtn.addEventListener("click", removeHandler);
+ 
+             function removeHandler () {
+                 a.removeEventListener("click", clickHandler);
+             };
+            };
+         </script>
+         <button id="mybutton">Кнопка</button>
+     </body>
+ </html>
+ 
