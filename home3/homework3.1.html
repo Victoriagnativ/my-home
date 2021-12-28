@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    
+</head>
+<style>
+    #demo{
+        
+        margin-bottom: 10px;
+        width: 45px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        padding: 15px;
+    }
+    
+</style>
+<body>
+    
+    <script>
+        var myUl;
+        var elem;
+        function start() {
+            myUl= setInterval(timer,1000)
+        };
+        function startEnd() {
+            myUl= setInterval(timer1,1000)
+        };
+        function timer(){
+            var elem= document.getElementById('demo');
+            elem.value=parseInt(elem.value)+1;
+            if(elem.value>=30){
+                clearInterval(myUl);
+            }
+        };
+        function timer1(){
+            var elem= document.getElementById('demo');
+            elem.value=parseInt(elem.value)-1;
+            if(elem.value<=1){
+                clearInterval(myUl);
+            }
+        };
+
+    
+        
+         function pause() {
+            clearInterval(myUl);
+            
+             
+        };
+         function restar() {
+            clearInterval(myUl)
+            document.getElementById('demo').value='0';
+            
+        };
+        // Щоб почати зворотній відлік потрібно натиснути на restar1
+        function restar1() {
+            clearInterval(myUl)
+            document.getElementById('demo').value='30';
+            
+        };
+        
+        
+    </script>
+    <input type="text" value="1"  id="demo">
+    <input onclick="start()" type="button" value="start">
+    <input onclick="pause()" type="button" value="pause" >
+    <input onclick="restar()" type="button" value="restar">
+    <input onclick="restar1()" type="button" value="restar1">
+    <input onclick="startEnd()" type="button" value="startEnd">
+  
+    
+</body>
+</html>
