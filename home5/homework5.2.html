@@ -1,0 +1,81 @@
+  <!--
+    1. Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+    <!DOCTYPE html>
+    <html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Homework</title>
+    </head>
+    <style>
+        .hidden {
+        display:none;
+     }
+    </style>
+    <body>
+        <div>   
+    <div >
+        1.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Quas eius numquam facere beatae, aspernatur sunt assumenda 
+         excepturi, eos pariatur, blanditiis molestiae.
+         Cum mollitia in omnis nulla sint. Adipisci, impedit 
+         inventore.
+         
+         <br/>          
+    <button>Remove toggle</button>
+    </div>
+    <div>
+        2.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Quas eius numquam facere beatae, aspernatur sunt assumenda 
+         excepturi, eos pariatur, blanditiis molestiae.
+         Cum mollitia in omnis nulla sint. Adipisci, impedit 
+         inventore.
+         <br/>
+    <button>Remove toggle</button>
+    </div>
+    <div>
+        3.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Quas eius numquam facere beatae, aspernatur sunt assumenda 
+         excepturi, eos pariatur, blanditiis molestiae.
+         Cum mollitia in omnis nulla sint. Adipisci, impedit 
+         inventore.  
+         <br/>
+    <button>Remove toggle</button>
+    </div>
+    <div>
+        4.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Quas eius numquam facere beatae, aspernatur sunt assumenda 
+         excepturi, eos pariatur, blanditiis molestiae.
+         Cum mollitia in omnis nulla sint. Adipisci, impedit 
+         inventore.
+         <br/>
+    <button>Remove toggle</button>
+    </div>
+    <div>
+        5.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Quas eius numquam facere beatae, aspernatur sunt assumenda 
+         excepturi, eos pariatur, blanditiis molestiae.
+         Cum mollitia in omnis nulla sint. Adipisci, impedit 
+         inventore.
+         <br/>
+    <button>Remove toggle</button>
+    </div>
+    </div>
+    
+    <script>
+        window.onload = function (){
+        var wapper=document.querySelector('div');
+        wapper.addEventListener("click",
+                    function (e) {
+                     var blockBtn=e.target.parentNode;
+                     blockBtn.remove();
+                }
+                    
+                );
+            
+        };
+    </script>
+    
+    
+    </body>
+    </html>
