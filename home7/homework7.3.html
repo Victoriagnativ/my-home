@@ -1,0 +1,50 @@
+<!-- Слайд перший Наследование
+  папка 7.2 другий слайд Полиморфизм -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    
+</head>
+<body>
+    <script>
+     class Man{
+         constructor(walk,eat,drink){
+         this.walk=walk;
+         this.eat=eat;
+         this.drink=drink;
+     }
+            showName () {
+                return `${this.walk}, ${this.eat}, ${this.drink}`
+            }
+     }
+     class Soldier extends Man{
+         constructor(walk,eat,drink,shoot){
+         super(walk,eat,drink);
+         this.shoot=shoot;
+     }
+            showName () {
+                return `Солдат гуляє у ${this.walk}, їсть ${this.eat},  п'є ${this.drink}, стріляє ${this.shoot}`
+            }
+     }
+     class Doctor extends Man{
+         constructor(walk,eat,drink,cure){
+         super(walk,eat,drink);
+         this.cure=cure;
+     }
+            showName () {
+                return `Лікар гуляє у ${this.walk}, їсть ${this.eat},  п'є ${this.drink},лікує ${this.cure}`
+            }
+     }
+
+     let sol = new Soldier('ліс','шашлик','воду','влучно');
+     let doc = new Doctor('парку','яблуко','чай','людей');
+    
+     console.log(sol.showName());
+     console.log(doc.showName());
+     
+
+    </script>
+</body>
+</html>
