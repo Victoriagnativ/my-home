@@ -14,46 +14,50 @@
 </style>
 <body>
     <!-- 
-	1. drag and drop;-->
+	1. drag and drop;
+	
+	-->
 
 
 	<div></div>
 	<script>
-		window.onload = function (){
-    var div =document.querySelector('div');
+ window.onload = function (){
+        var div =document.querySelector('div');
 		div.onmousedown = function(event) {
 
-       let shiftX = event.clientX - div.getBoundingClientRect().left;
-       let shiftY = event.clientY - div.getBoundingClientRect().top;
+        let shiftX = event.clientX - div.getBoundingClientRect().left;
+        let shiftY = event.clientY - div.getBoundingClientRect().top;
 
-       div.style.position = 'absolute';
-       div.style.zIndex = 1000;
-       document.body.append(div);
+        div.style.position = 'absolute';
+        div.style.zIndex = 1000;
+        document.body.append(div);
 
-    moveAt(event.pageX, event.pageY);
+        moveAt(event.pageX, event.pageY);
 
-    function moveAt(pageX, pageY) {
-    div.style.left = pageX - shiftX + 'px';
-    div.style.top = pageY - shiftY + 'px';
-  }
+  
+       function moveAt(pageX, pageY) {
+       div.style.left = pageX - shiftX + 'px';
+       div.style.top = pageY - shiftY + 'px';
+    }
 
-    function onMouseMove(event) {
-    moveAt(event.pageX, event.pageY);
-  }
+       function onMouseMove(event) {
+       moveAt(event.pageX, event.pageY);
+    }
 
-  // передвигаем мяч при событии mousemove
-    document.addEventListener('mousemove', onMouseMove);
+ 
+       document.addEventListener('mousemove', onMouseMove);
 
-    div.onmouseup = function() {
-    document.removeEventListener('mousemove', onMouseMove);
-    div.onmouseup = null;
-  };
+  
+       div.onmouseup = function() {
+       document.removeEventListener('mousemove', onMouseMove);
+       div.onmouseup = null;
+    };
 
-};
+    };
 
-  div.ondragstart = function() {
-  return false;
-};
+       div.ondragstart = function() {
+       return false;
+    };
 }
 	</script>
 </body>
