@@ -1,0 +1,52 @@
+<!-- Слайд перший Наследование-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        
+    
+        class Doctor  {
+        constructor(walk,eat,drink,cure){
+        this.walk=walk;
+         this.eat=eat;
+         this.drink=drink;
+         this.cure=cure;}
+         showCure  () {
+            return ` Лікар   ${this.cure} людей.`
+            
+        };
+        }
+        class Dentist extends Doctor  {
+        constructor(walk,eat,drink,cure){
+        super(walk,eat,drink,cure)
+    }
+         showCure  () {
+            return ` Дантист ${this.cure} `
+        }
+    }
+    class Surgeon extends Doctor  {
+        constructor(walk,eat,drink,cure){
+        super(walk,eat,drink,cure)
+    }
+         showCure  () {
+            return `Хірург ${this.cure} людям`
+        }
+    }
+        
+        
+    
+        
+        var dentist = new Dentist('ліс','шашлик','воду','treat teeth');
+        var surgeon = new Surgeon('парку','яблуко','чай','perform operations');
+       
+        dentist.showCure();
+        surgeon.showCure();
+        console.log(dentist);
+        console.log(surgeon);
+    </script>
+</body>
+</html>
