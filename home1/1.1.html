@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .classNew {
+            color: red;
+        }
+        
+            
+        
+    </style> 
+    
+</head>
+<body>
+    <script>
+        function myFunction() {
+            var myUL = document.getElementById("myUL").firstChild;
+           myUL.classList.toggle('classNew')
+            // myUL.style.color='red';
+            // console.log(document.getElementById("myUL").firstChild)
+            
+         
+        };
+            function myFunction1() {
+            var myUL = document.getElementById("myUL").lastChild;
+            myUL.style.color='red';
+            console.log(document.getElementById("myUL").lastChild);
+            
+        }
+         
+        function myFunction2() {
+            // 1. найти текущий подсвеченый элемент(id / name / class)
+            // 2. nextSibling
+            var div = document.getElementById('myUL');
+            var elems = div.getElementsByTagName('*');
+            console.log(elems);
+            for (i=0; i<elems.length; i++){
+            if(elems[i].classList.contains('classNew')){
+                elems[i].classList.remove('classNew') ;
+                var nextElement=elems[i].nextSibling;
+                return nextElement.classList.add('classNew')
+            };
+            
+        }
+            
+    
+         };
+            
+            
+ 
+            
+                
+            
+                
+                
+                
+            
+        
+        
+            
+        
+         
+            function myFunction3() {
+            // 1. найти текущий подсвеченый элемент(id / name / class)
+            // 2. nextSibling
+            var div = document.getElementById('myUL');
+            var elems = div.getElementsByTagName('*');
+            console.log(elems);
+            for (i=0; i<elems.length; i++){
+            if(elems[i].classList.contains('classNew')){
+                elems[i].classList.remove('classNew') ;
+                var nextElement=elems[i].previousSibling;
+                return nextElement.classList.add('classNew')
+            }
+
+            
+        }
+            
+    
+         };
+            
+            
+        
+        function append(form) {
+            if (form.input.value) {
+                var newElement = document.createElement("li");
+                newElement.innerHTML = form.input.value;
+                document.getElementById("myUL").appendChild(newElement);
+            }
+        }
+        function remove() {
+            var myUL = document.getElementById("myUL");
+            var lastElement = myUL.lastChild;
+            myUL.removeChild(lastElement);
+            
+       }
+       function firstList(form) {
+            if (form.input.value) {
+                var myUL = document.getElementById("myUL")
+                var firstLi=myUL.firstChild;
+                var newListElem = document.createElement('LI');
+                newListElem.innerHTML = form.input.value;
+                myUL.insertBefore(newListElem, firstLi);
+
+                
+                
+            }
+        }
+
+    </script>
+    <h2>Заголовок</h2>
+<br />
+<ul id="myUL"><li>Первый элемент</li><li>Второй  элемент</li><li>Третий элемент</li><li>Четвертий элемент</li><li>Пятий  элемент</li></ul>
+<form>
+     Введите текст, который будет добавлен или заменен в элементе:<br /> 
+     <input type="text" id="myinput" name="input" size="30" /><br />
+     <input type="button" value="Вибрать Первый " onclick="myFunction(this.form)" />
+     <br />
+     <input type="button" value="Вибрать Последний" onclick="myFunction1(this.form)"  /> <br />
+     <input type="button" value="Вибрать следующий" onclick="myFunction2(this.form)" /><br />
+     <input type="button" value="Вибрать предидущий" onclick="myFunction3(this.form)"  /><br />
+     <input type="button" value="Добавить" onclick="append(this.form)" /><br />
+     <input type="button" value="Удаліть" onclick="remove(this.form)" /><br />
+     <input type="button" value="Добавить в начало" onclick="firstList(this.form)" />
+</form>
+    
+</body>
+</html>
