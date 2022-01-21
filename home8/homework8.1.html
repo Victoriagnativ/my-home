@@ -1,0 +1,81 @@
+<!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу,
+    которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему"
+    а рядом разместите кнопку "Выход" которая вернет пользователя к 
+    модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homework</title>
+        <link rel="stylesheet" href="home.css">
+        <style>
+    
+            
+        </style>
+    </head>
+    <body>
+    
+    
+    <div class="modal">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <form action="#"  name="login">
+                    
+                    <div class="modal__title">log in</div>
+                    <input required placeholder="Your name" name="name" type="text" class="modal__input">
+                    <button class="btn btn_dark btn_min">Enter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+        <script>
+            window.addEventListener("load", init);
+             function init(){ 
+             var modalBtn=document.querySelector('button');
+             modalBtn.addEventListener('click', modalHandler);
+             function modalHandler (){
+             var elem =document.querySelector('[type="text"]').value;
+             var element =elem[0].toUpperCase() + elem.slice(1);
+             var pattern =/\D/;
+             var res = pattern.test(element)
+             if(res===true){
+                window.localStorage.setItem("users", element);
+                
+            
+             }else{
+                alert("Допущены ошибки при заполнении формы.");
+                    e.preventDefault();
+                    return false; // отмена отправки формы.
+             }
+             document.body.innerText = `Пользоваетль  ${localStorage.getItem('users')},  вошел в систему`;
+            
+             var newElement=document.createElement('button');
+             newElement.innerHTML = 'Entrance';
+             document.body.appendChild(newElement);
+             
+              
+             newElement.addEventListener('click',function(){
+                newElement.classList.add('hide');
+                document.body.classList.add('hide');
+                var modal =document.querySelector('div');
+                modal.classList.add('show');
+                
+               
+             })
+            
+             }
+             
+            } 
+             
+    
+            
+             
+    
+             
+    
+        </script>
+    
+        
+    </body>
+    </html>
+    
